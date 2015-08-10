@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
   
+  get 'sessions/new'
+
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
   # users routes
   get "/signup", to: "users#new"
   get "/profile", to: "users#show"
@@ -14,6 +20,6 @@ Rails.application.routes.draw do
   # stories routes
   resources :stories, except: [:index]
 
-  root "stories#index"
+  root "site#index"
 
 end
