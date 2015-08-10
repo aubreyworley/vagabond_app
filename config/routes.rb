@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   
-  get 'sessions/new'
 
-  get 'sessions/create'
-
-  get 'sessions/destroy'
 
   # users routes
   get "/signup", to: "users#new"
@@ -14,6 +10,8 @@ Rails.application.routes.draw do
   # sessions routes
   get "/login", to: "sessions#new"
   get "/logout", to: "sessions#destroy"
+  delete "/logout", to: "sessions#destroy"  
+
   # post "/sessions", to: "sessions#create" 
   resources :sessions, only: [:create]
 
