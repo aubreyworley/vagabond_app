@@ -5,6 +5,7 @@ class CreateStories < ActiveRecord::Migration
       t.string :title
       t.string :body
       t.belongs_to :user
+      t.belongs_to :city
       t.timestamps null: false
     end
   end
