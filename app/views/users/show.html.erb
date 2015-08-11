@@ -1,29 +1,26 @@
-<h1>Profile Page</h1>
+<div class='container'>
+	<div class="row">
+		<div class="col-lg-4">
+			<h1 id='welcomeTitle'>Welcome, <%= @current_user.first_name.capitalize %>!</h1>
+			<hr>
+			<div id="userSettings">
+				<h4>Profile Settings</h4>
+					<hr>
+					<p> Name: <%= @current_user.first_name %> <%= @current_user.last_name %>  </p>
+					<p> Email Address: <%= @current_user.email %> </p>
+					<p> City: <%= @current_user.current_city %> </p>
+					<p> User Since: <%=  @current_user.created_at.strftime("%B %d, %Y")%> </p>
+					<%= link_to "Edit Profile", '/users/edit', class:"btn btn-primary" %> 
+					<hr>
+			</div>
+		</div>
+		<div class="col-lg-8">
+			<h1 id='myStoriesTitle'>My Stories</h1>
+				<% current_user.stories.each do |story| %>
+				  <p><%= story.author %> - <%= story.title %> - <%= story.body %> - <%= story.location %> </p>
+				<% end %>
+				<hr>
+		</div>
+	</div>
 
-<%= @current_user.first_name %>
-<%= @current_user.last_name %>
-<%= @current_user.email %>
-<%= @current_user.current_city %>
-<%= @current_user.join_date %>
-
-<hr>
-
-<h1> Edit Profile </h1>
-
-<%= form_for @user do |f| %>
-  <%= f.text_field :first_name, placeholder: "First Name" %><br>
-  <%= f.text_field :last_name, placeholder: "Last Name" %><br>
-  <%= f.text_field :current_city, placeholder: "Current City" %><br>
-  <%= f.text_field :join_date, placeholder: "Join Date" %><br>
-  <%= f.email_field :email, placeholder: "Email" %><br>
-  <%= f.password_field :password, placeholder: "Password" %><br>
-  <%= f.submit "Update Profile" %>
-<% end %>
-
-<hr>
-
-<h3>My Stories</h3>
-<% current_user.stories.each do |story| %>
-  <p><%= story.author %> - <%= story.title %> - <%= story.body %> - <%= story.location %> </p>
-<% end %>
-
+</div>
