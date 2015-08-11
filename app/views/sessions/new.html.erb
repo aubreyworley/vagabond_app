@@ -1,6 +1,8 @@
-<h1>Log in</h1>
+<h1 id="logInTitle">Log In To Vagabond</h1>
 <%= form_for :user, url: sessions_path do |f| %>
-  <%= f.email_field :email, placeholder: "Email" %><br>
-  <%= f.password_field :password, placeholder: "Password" %><br>
-  <%= f.submit "Log In" %>
+  <%= f.email_field :email, placeholder: "Enter Your Email", class: 'form-control'  %>
+  <br>
+  <%= f.password_field :password, placeholder: "Enter Your Password", class: 'form-control'  %>
+  <br>
+  <%= f.submit "Log In", class: 'btn btn-primary center-block'  %>
 <% end %>
