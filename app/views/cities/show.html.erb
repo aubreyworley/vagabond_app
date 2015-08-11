@@ -1,0 +1,9 @@
+<h1 id='myStoriesTitle'>San Francisco</h1>
+  
+<% @stories.each do |story| %>
+  <%= link_to story.author, user_path(user) %> 
+    <hr>
+      <%= story.title %> 
+    <hr>
+      <%= story.body %>    
+<% end %>

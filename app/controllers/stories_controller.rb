@@ -54,6 +54,6 @@ class StoriesController < ApplicationController
 
   private
     def story_params
-      params.require(:story).permit(:author, :title, :body, :location)
+      params.require(:story).permit(:author, :title, :body, :city_id)
     end
 end
