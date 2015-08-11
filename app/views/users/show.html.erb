@@ -17,7 +17,7 @@
 		<div class="col-lg-8">
 			<h1 id='myStoriesTitle'>My Stories</h1>
 				<% current_user.stories.each do |story| %>
-				  <p><%= story.author %> - <%= story.title %> - <%= story.body %> - <%= story.location %> </p>
+				  <p><%= story.user_id %> - <%= story.title %> - <%= story.body %></p>
 				<% end %>
 				<hr>
 		</div>
