@@ -1,5 +1,10 @@
 <h1 id='myStoriesTitle'>Your Story</h1>
-  <% current_user.stories.each do |story| %>
-    <p><%= story.author %> - <%= story.title %> - <%= story.body %> - <%= story.location %> </p>
-  <% end %>
+  <%= @story.author %> 
+    <hr>
+      <%= @story.title %> 
+    <hr>
+      <%= @story.body %>  
+    <hr>
+      <%= @story.location %>
+
     
