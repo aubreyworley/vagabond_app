@@ -1,4 +1,3 @@
-
 <h1>Profile Page</h1>
 
 <%= @current_user.first_name %>
@@ -8,6 +7,21 @@
 <%= @current_user.join_date %>
 
 <hr>
+
+<h1> Edit Profile </h1>
+
+<%= form_for @user do |f| %>
+  <%= f.text_field :first_name, placeholder: "First Name" %><br>
+  <%= f.text_field :last_name, placeholder: "Last Name" %><br>
+  <%= f.text_field :current_city, placeholder: "Current City" %><br>
+  <%= f.text_field :join_date, placeholder: "Join Date" %><br>
+  <%= f.email_field :email, placeholder: "Email" %><br>
+  <%= f.password_field :password, placeholder: "Password" %><br>
+  <%= f.submit "Update Profile" %>
+<% end %>
+
+<hr>
+
 <h3>My Stories</h3>
 <% current_user.stories.each do |story| %>
   <p><%= story.author %> - <%= story.title %> - <%= story.body %> - <%= story.location %> </p>
