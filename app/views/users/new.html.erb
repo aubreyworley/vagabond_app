@@ -1,10 +1,16 @@
-<h1>Sign Up</h1>
+<h1 id='signUpTitle'>Sign Up For Vagabond</h1>
 <%= form_for @user do |f| %>
-  <%= f.text_field :first_name, placeholder: "First Name" %><br>
-  <%= f.text_field :last_name, placeholder: "Last Name" %><br>
-  <%= f.text_field :current_city, placeholder: "Current City" %><br>
-  <%= f.text_field :join_date, placeholder: "Join Date" %><br>
-  <%= f.email_field :email, placeholder: "Email" %><br>
-  <%= f.password_field :password, placeholder: "Password" %><br>
-  <%= f.submit "Sign Up" %>
+	<%= f.text_field :first_name, placeholder: "Enter First Name", class: 'form-control' %>
+  <br>
+  <%= f.text_field :last_name, placeholder: "Enter Last Name", class: 'form-control'  %>
+	<br>
+  <%= f.text_field :current_city, placeholder: "Enter Current City", class: 'form-control'  %>
+  <br>
+  <%= f.email_field :email, placeholder: "Enter Email Address", class: 'form-control'  %>
+  <br>
+  <%= f.password_field :password, placeholder: "Create a Password", class: 'form-control'  %>
+  <br>
+  <%= f.submit "Sign Up", class: 'btn btn-primary center-block' %>
 <% end %>
+
+
