@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   # stories routes
   resources :stories, except: [:index]
 
+  # cities routes
+  resources :cities, only: [:show]
+
   root "site#index"
 
 end

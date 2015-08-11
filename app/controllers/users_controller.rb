@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_filter :authorize, only: [:show]
-	def new
+	
+  def new
     if current_user
       redirect_to profile_path
     else
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
   		redirect_to profile_path
   	else
   		redirect_to signup_path
-  	 end
+  	end
     end	
   end
 
