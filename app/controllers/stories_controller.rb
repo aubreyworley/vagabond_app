@@ -19,16 +19,37 @@ class StoriesController < ApplicationController
   end
 
   def show
+    @story = Story.find(params[:id])
     render :show
   end
 
   def edit
+    @story = Story.find(params[:id])
+    if current_user.stories.include? @stories
+      render :edit
+    else 
+      redirect_to profile_path
+    end
   end
 
   def update
+    story = Story.find(params[:id])
+    if current_user.stories.include? story
+      story.update_attributes(story_params)
+      redirect_to story_path(story)
+    else
+      redirect_to profile_path
+    end
   end
 
   def destroy
+    story = Story.find(params[:id])
+    if current_user.stories.include? story
+      story.delete_attributes(story_params)
+      redirect_to story_path(story)
+    else 
+      redirect_to profile_path
+    end
   end
 
   private

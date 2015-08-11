@@ -16,10 +16,11 @@
 		</div>
 		<div class="col-lg-8">
 			<h1 id='myStoriesTitle'>My Stories</h1>
-				<% current_user.stories.each do |story| %>
-				  <p><%= story.author %> - <%= story.title %> - <%= story.body %> - <%= story.location %> </p>
+      <% current_user.stories.each do |story| %>
+				  <p class="title"><%= link_to story.title, story_path(story) %></p>
 				<% end %>
 				<hr>
+
 		</div>
 	</div>
 
