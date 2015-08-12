@@ -1,9 +1,15 @@
-<h1 id='myStoriesTitle'>San Francisco</h1>
+<h1 id='myStoriesTitle'>  <%= @city.city_name %> </h1>
+
+
   
 <% @stories.each do |story| %>
-  <%= link_to story.author, user_path(user) %> 
+
     <hr>
       <%= story.title %> 
     <hr>
       <%= story.body %>    
+      <%= link_to "Edit Post", edit_story_path, class:"btn btn-primary" %> 
+	  <%= link_to "Delete", story, method: :delete, data: { confirm: "are you sure?" }, class:"btn btn-primary" %> 	
+
 <% end %>
+<%= link_to "New Post", '/stories/new', class:"btn btn-primary" %> 
