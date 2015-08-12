@@ -1,2 +1,9 @@
-<h1>Stories#edit</h1>
-<p>Find me in app/views/stories/edit.html.erb</p>
+
+
+<%= form_for @story do |f| %>
+    <p> Edit your Story</p>
+    <p> <%= f.text_field :title, placeholder: "Title" %><br></p>
+    <p> <%= f.text_area :body, placeholder: "Body" %><br> </p> <br>
+    <%= f.submit "Update Story", class: 'btn btn-primary'%>
+<% end %>
+
