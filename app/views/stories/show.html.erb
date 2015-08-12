@@ -9,4 +9,7 @@
   <hr>
   <%= @story.city_id %>
 
+     <%= link_to "Edit Post", edit_story_path, class:"btn btn-primary" %> 
+	  <%= link_to "Delete", @story, method: :delete, data: { confirm: "are you sure?" }, class:"btn btn-primary" %> 	
+
     

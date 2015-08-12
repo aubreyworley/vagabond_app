@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 </head>
 <body>
+
   <nav class="navbar navbar-inverse">
     <div class="container">
       <div class="navbar-header">
@@ -30,7 +31,7 @@
         <ul class="nav navbar-nav navbar-right" id="nav-links">
          <% if current_user %> 
            <ul> 
-             <li><%= current_user.email %></li> 
+             <li style="color:white"><%= current_user.first_name %></li> 
              <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
            </ul> 
          <% else %> 

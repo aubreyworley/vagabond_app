@@ -1,5 +1,15 @@
 <h1>New Story</h1>
 <%= form_for @story do |f| %>
+	
+	<% if @story.errors.any? %>
+	<h2><%= pluralize(@story.error.count, "error") %> prevented this post from saving: %></h2>
+		<ul>
+			<% @story.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+
+		</ul>
+	<% end %>
   <%= f.text_field :author, placeholder: "Author" %><br>
   <%= f.text_field :title, placeholder: "Title" %><br>
   <%= f.text_area :body, placeholder: "Body" %><br>

@@ -15,9 +15,14 @@ class StoriesController < ApplicationController
 
   # creates new story in db that belongs to current_user
   def create
-    story = current_user.stories.create(story_params)
+    story = current_user.stories.new(story_params)
+      if story.save
+          redirect_to story_path(story)
+      else
+          render :new   
+      end
     # @story.user = current_user
-    redirect_to story_path(story)
+    # redirect_to story_path(story)
   end
 
   def show
@@ -28,23 +33,23 @@ class StoriesController < ApplicationController
   def edit
     @user = current_user
     @story = Story.find(params[:id])
-    # if current_user.stories.include? @story
+    if current_user.stories.include? @story
       render :edit
-    # else 
-    #   session[:user_id] = nil
-    #   redirect_to profile_path
-    # end
+    else 
+      session[:user_id] = nil
+      redirect_to profile_path
+    end
   end
 
   def update
     @user = current_user
     story = Story.find(params[:id])
-    # if current_user.stories.include? story
+    if current_user.stories.include? story
       story.update_attributes(story_params)
       redirect_to story_path(story)
-    # else
-    #   redirect_to profile_path
-    # end
+    else
+      redirect_to profile_path
+    end
   end
 
   def destroy
@@ -52,7 +57,7 @@ class StoriesController < ApplicationController
     story = Story.find(params[:id])
     # if current_user.stories.include? story
       story.destroy
-    #   redirect_to story_path(story)
+      # redirect_to story_path(story)
     # else 
       redirect_to profile_path
     # end
