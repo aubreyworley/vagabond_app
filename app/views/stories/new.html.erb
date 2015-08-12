@@ -1,6 +1,10 @@
 <h1>New Story</h1>
 <%= form_for @story do |f| %>
-	
+	<% flash.each do |name, msg| %>
+	      <%= content_tag :div, msg, class: name %>
+	<% end %>
+
+
 	<% if @story.errors.any? %>
 	<h2><%= pluralize(@story.error.count, "error") %> prevented this post from saving: %></h2>
 		<ul>
