@@ -26,13 +26,13 @@ class StoriesController < ApplicationController
   end
 
   def show
-    @story = Story.find(params[:id])
+    @story = Story.friendly.find(params[:id])
     render :show
   end
 
   def edit
     @user = current_user
-    @story = Story.find(params[:id])
+    @story = Story.friendly.find(params[:id])
     if current_user.stories.include? @story
       render :edit
     else 
@@ -43,7 +43,7 @@ class StoriesController < ApplicationController
 
   def update
     @user = current_user
-    story = Story.find(params[:id])
+    story = Story.friendly.find(params[:id])
     if current_user.stories.include? story
       story.update_attributes(story_params)
       redirect_to story_path(story)
@@ -54,7 +54,7 @@ class StoriesController < ApplicationController
 
   def destroy
     @user = current_user
-    story = Story.find(params[:id])
+    story = Story.friendly.find(params[:id])
     # if current_user.stories.include? story
       story.destroy
       # redirect_to story_path(story)
