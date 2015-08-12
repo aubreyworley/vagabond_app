@@ -18,6 +18,10 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create]
 
   # stories routes
+  get "/stories/edit", to: "stories#edit"
+  post "/stories/edit", to: "stories#update"
+  put '/stories/edit', to: "stories#update"
+  delete "/stories/destroy", to: "stories#destroy"
   resources :stories, except: [:index]
 
   # cities routes
