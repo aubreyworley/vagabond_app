@@ -6,6 +6,8 @@
 			<div id="userSettings">
 				<h4>Profile Settings</h4>
 					<hr>
+					<%= image_tag @current_user.avatar.url(:medium) %>
+					<hr>
 					<p> Name: <%= @current_user.first_name %> <%= @current_user.last_name %>  </p>
 					<p> Email Address: <%= @current_user.email %> </p>
 					<p> City: <%= @current_user.current_city %> </p>
