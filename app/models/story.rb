@@ -7,4 +7,8 @@ class Story < ActiveRecord::Base
 
   validates :title, presence: true, length: {minimum: 1, maximum: 10}
   validates :body, presence: true
+
+  has_many :StoriesTags
+  has_many :tags, through: :StoriesTags
+
 end
