@@ -8,6 +8,8 @@
     <p> <%= f.email_field :email, placeholder: "Email", autofocus: true%> </p> <br>
     <p> Edit Your Location </p>
     <p> <%= f.text_field :current_city, placeholder: "Current City"%> </p> <br>
+    <p> Change Your Profile Pic </p>
+    <p> <%= f.file_field :avatar %> </p>
     <%= f.submit "Update Profile", class: 'btn btn-primary', id: "signUpButton" %>
 <% end %>
 </div>

@@ -15,12 +15,13 @@ class StoriesController < ApplicationController
 
   # creates new story in db that belongs to current_user
   def create
-    story = current_user.stories.new(story_params)
-      if story.save
-          redirect_to story_path(story)
-      else
-          render :new   
-      end
+    if current_user
+      story = current_user.stories.new(story_params)
+      story.save
+      redirect_to story_path(story)
+    else
+      redirect_to login_path
+    end
     # @story.user = current_user
     # redirect_to story_path(story)
   end

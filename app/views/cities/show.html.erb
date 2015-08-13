@@ -1,11 +1,32 @@
 <h1 id='myStoriesTitle'>  <%= @city.city_name %> </h1>
 
 <%= link_to "New Post", '/stories/new', class:"btn btn-primary" %> 
-<% @stories.each do |story| %>
-    
+<hr>
+
+<div class="container">
+	<div id="showPosts">
+		
+			
+				<% @stories.each do |story| %>
+					<div class="row">
+						<div class="col-lg-4">		  	
+					  	<hr>
+					  	
+					  	<p> Posted By: <%= story.user.first_name %> <%= story.user.last_name %> </p>
+						</div>
+						<div class="col-lg-8">
+							<hr>
+							<p> Title: <%= link_to story.title, story_path(story) %> </p>
+					    <hr>
+					     <p> Story: <%= story.body %> </p>
+					  </div>
+					 </div>
+				<% end %>
+	</div>
+</div>
 	
-    <%= story.title %> 
-    <hr>
-      <%= story.body %>    
-<% end %>
-<%= link_to "New Post", '/stories/new', class:"btn btn-primary" %> 
+
+
+
+
+
