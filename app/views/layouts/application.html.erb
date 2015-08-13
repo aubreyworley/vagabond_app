@@ -2,18 +2,29 @@
 <html>
 <head>
   <title>VagabondApp</title>
+  
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+
+  <% if controller_name == "site" && action_name == "index" %>
+     <%= stylesheet_link_tag "site" %>
+     <%= javascript_include_tag "site" %>
+  <% end %>
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-</head>
-<body>
 
+  <!-- Google Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
+</head>
+<body id="body">
+
+  <div class="wrapper">
   <nav class="navbar navbar-inverse" id="shitNav">
     <div class="container">
       <div class="navbar-header">
@@ -30,20 +41,21 @@
        
         <ul class="nav navbar-nav navbar-right" id="nav-links">
          <% if current_user %> 
-           <ul> 
+           
              <li style="color:white"><%= current_user.first_name %></li> 
              <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
-           </ul> 
+           
          <% else %> 
-           <ul> 
+         
              <li><%= link_to "Login", 'login' %></a></li> 
              <li><%= link_to "Signup", 'signup' %></a></li> 
-           </ul> 
+           
          <% end %>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container -->
   </nav>
+</div>
   <div class="container">
     <%= yield %>
   </div>

@@ -30,10 +30,11 @@ ActiveRecord::Schema.define(version: 20150813215926) do
     t.string   "title"
     t.string   "body"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "city_id"
     t.string   "slug"
+    t.string   "tags",       default: [],              array: true
   end
 
   add_index "stories", ["slug"], name: "index_stories_on_slug", unique: true, using: :btree
@@ -47,18 +48,6 @@ ActiveRecord::Schema.define(version: 20150813215926) do
 
   add_index "stories_tags", ["story_id"], name: "index_stories_tags_on_story_id", using: :btree
   add_index "stories_tags", ["tag_id"], name: "index_stories_tags_on_tag_id", using: :btree
-
-  create_table "taggings", force: :cascade do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
-    t.integer  "tagger_id"
-    t.string   "tagger_type"
-    t.string   "context",       limit: 128
-    t.datetime "created_at"
-  end
-
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string "name"
