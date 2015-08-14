@@ -1,0 +1,7 @@
+<%= form_for @city do |f| %>
+
+  <%= f.text_field :city_name, placeholder: "city name", class: 'form-control'  %><br>
+  <%= f.file_field :citypic %>
+  <hr>
+  <%= f.submit "Save Story", class: 'btn btn-success', id: "buttonz" %>
+<% end %>
