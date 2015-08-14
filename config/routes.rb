@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   resources :stories, except: [:index]
 
   # cities routes
-  resources :cities, only: [:show]
+  resources :cities
 
   root "site#index"
 

@@ -25,13 +25,34 @@
         </button>
         <a class="navbar-brand" href="/">Vagabond</a>
       </div>
-
+      
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-       
+        <ul class="nav navbar-nav">
+      
+        
+        <% if current_user  %>
+           <li><a href="/profile">Profile</a></li>
+        <% else %>
+          <li> </li> 
+        <% end  %>  
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cities <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/cities/san-francisco">San Francisco</a></li>
+            <li><a href="/cities/london">London</a></li>
+            <li><a href="/cities/gibraltar">Gibraltar</a></li>
+          </ul>
+        </li>
+      </ul>
+
+
+
+
+
         <ul class="nav navbar-nav navbar-right" id="nav-links">
          <% if current_user %> 
            <ul> 
-             <li style="color:white"><%= current_user.first_name %></li> 
+             <li style="color:white"> Hello, <%= current_user.first_name %></li> 
              <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
            </ul> 
          <% else %> 

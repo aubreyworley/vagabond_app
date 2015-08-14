@@ -11,16 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150813161308) do
+ActiveRecord::Schema.define(version: 20150813230152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cities", force: :cascade do |t|
     t.string   "city_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
     t.string   "slug"
+    t.string   "citypic_file_name"
+    t.string   "citypic_content_type"
+    t.integer  "citypic_file_size"
+    t.datetime "citypic_updated_at"
   end
 
   add_index "cities", ["slug"], name: "index_cities_on_slug", unique: true, using: :btree
