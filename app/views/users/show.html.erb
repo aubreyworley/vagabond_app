@@ -1,12 +1,13 @@
 <div class='container'>
 	<div class="row">
 		<div class="col-lg-4">
-			<h1 id='welcomeTitle'>Welcome, <%= @current_user.first_name.capitalize %>!</h1>
+			<h1 id='profileTitle'>Welcome</h1>
+			<h1 id='profileTitle'><%= @current_user.first_name.capitalize %>!</h1>
 			<hr>
 			<div id="userSettings">
 				<h4>Profile Settings</h4>
 					<hr>
-					<%= image_tag @current_user.avatar.url(:medium) %>
+					<p id="profilePic"> <%= image_tag @current_user.avatar.url(:medium), class: 'img-circle', alt: 'Cinque Terre', width: '160', height: '140' %> </p>
 					<hr>
 					<p> Name: <%= @current_user.first_name %> <%= @current_user.last_name %>  </p>
 					<p> Email Address: <%= @current_user.email %> </p>
@@ -17,9 +18,11 @@
 			</div>
 		</div>
 		<div class="col-lg-8">
-			<h1 id='myStoriesTitle'>My Stories</h1>
+			<h1 id='profileTitle'>My Posts</h1>
       <% current_user.stories.each do |story| %>
-				  <p class="title"><%= link_to story.title, story_path(story) %></p>
+      		<hr>
+				  <p> Subject: <%= link_to story.title, story_path(story) %></p>
+				  <p> Posted on <%=  story.created_at.strftime("%B %d, %Y")%> about <%= story.city.city_name %> </p>
 				<% end %>
 
 		</div>

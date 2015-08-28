@@ -1,18 +1,19 @@
-<h1 id='myStoriesTitle'>  <%= @city.city_name %> </h1>
 
-<%= link_to "New Post", '/stories/new', class:"btn btn-primary" %> 
-<hr>
+<div class="container" style="background-image: url(<%= @city.citypic %>); background-size: cover;" id="cityPic">
+	<h1 id='myStoriesTitle'>  <%= @city.city_name %> </h1>
+		<p id="newPostButton"> <%= link_to "Post Something New", '/stories/new', class: "btn btn-primary", id: "newPostButton" %> </p>
+</div>
+
 
 <div class="container">
 	<div id="showPosts">
-		
-			
-				<% @stories.each do |story| %>
+		<% @stories.each do |story| %>
 					<div class="row">
-						<div class="col-lg-4">		  	
+						<div class="col-lg-4" id="storyProfile">		  	
 					  	<hr>
-					  	
+					  	<%= image_tag story.user.avatar.url(:medium), class: 'img-circle', alt: 'Cinque Terre', width: '160', height: '140'  %>
 					  	<p> Posted By: <%= story.user.first_name %> <%= story.user.last_name %> </p>
+					  	<p> Posted On: <%=  story.created_at.strftime("%B %d, %Y")%> </p>
 						</div>
 						<div class="col-lg-8">
 							<hr>
