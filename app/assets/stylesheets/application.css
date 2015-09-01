@@ -14,22 +14,4 @@
  *= require_self
  */
 
-#body {
-  background-color: #F5F5DC;
-  font-family: 'Pacifico', cursive;
-}
-
-#nav {
-  font-color: white;
-}
-
-
-
-.h1 {
-  font: times ;
-}
-
-.navbar-inverse {
-  background-color: green;
-}
 

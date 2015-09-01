@@ -24,39 +24,39 @@
 </head>
 <body id="body">
 
-  <div class="wrapper">
-  <nav class="navbar navbar-inverse" id="shitNav">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Vagabond</a>
-      </div>
+  <div class="containter-fluid">
+    <nav class="navbar navbar-inverse" id="shitNav">
+     
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Vagabond</a>
+        </div>
 
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-       
-        <ul class="nav navbar-nav navbar-right" id="nav-links">
-         <% if current_user %> 
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+          <ul class="nav navbar-nav navbar-right" id="nav-links">
+           <% if current_user %> 
            
-             <li style="color:white"><%= current_user.first_name %></li> 
-             <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
+           <li style="color:white"><%= current_user.first_name %></li> 
+           <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
            
-         <% else %> 
-         
-             <li><%= link_to "Login", 'login' %></a></li> 
-             <li><%= link_to "Signup", 'signup' %></a></li> 
+           <% else %> 
+
+           <li><%= link_to "Login", 'login' %></a></li> 
+           <li><%= link_to "Signup", 'signup' %></a></li> 
            
-         <% end %>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container -->
-  </nav>
-</div>
-  <div class="container">
+           <% end %>
+         </ul>
+       </div><!-- /.navbar-collapse -->
+
+    </nav>
+  </div>
+  <div>
     <%= yield %>
   </div>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
