@@ -2,9 +2,15 @@
 <html>
 <head>
   <title>VagabondApp</title>
+  
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+
+  <% if controller_name == "site" && action_name == "index" %>
+     <%= stylesheet_link_tag "site" %>
+     <%= javascript_include_tag "site" %>
+  <% end %>
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -12,59 +18,49 @@
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
+
+  <!-- Google Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+
 </head>
 <body id="body">
 
-  <nav class="navbar navbar-inverse" id="shitNav">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Vagabond</a>
-      </div>
-      
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-      
-        
-        <% if current_user  %>
-           <li><a href="/profile">Profile</a></li>
-        <% else %>
-          <li> </li> 
-        <% end  %>  
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cities <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="/cities/san-francisco">San Francisco</a></li>
-            <li><a href="/cities/london">London</a></li>
-            <li><a href="/cities/gibraltar">Gibraltar</a></li>
-          </ul>
-        </li>
-      </ul>
-        <ul class="nav navbar-nav navbar-right" id="nav-links">
-         <% if current_user %> 
+  <div class="containter-fluid">
+    <nav class="navbar navbar-inverse" id="shitNav">
+     
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Vagabond</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+          <ul class="nav navbar-nav navbar-right" id="nav-links">
+           <% if current_user %> 
            
-             <li style="color:white"> Hello, <%= current_user.first_name %></li> 
-             <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
+           <li style="color:white"><%= current_user.first_name %></li> 
+           <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
            
-         <% else %> 
+           <% else %> 
+
+           <li><%= link_to "Login", 'login' %></a></li> 
+           <li><%= link_to "Signup", 'signup' %></a></li> 
            
-             <li><%= link_to "Login", 'login' %></a></li> 
-             <li><%= link_to "Signup", 'signup' %></a></li> 
-           
-         <% end %>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container -->
-  </nav>
-	<div class="container">
-		<%= yield %>
-	</div>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+           <% end %>
+         </ul>
+       </div><!-- /.navbar-collapse -->
+
+    </nav>
+  </div>
+  <div>
+    <%= yield %>
+  </div>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
 </body>
 </html>
