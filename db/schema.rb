@@ -43,22 +43,6 @@ ActiveRecord::Schema.define(version: 20150813230152) do
 
   add_index "stories", ["slug"], name: "index_stories_on_slug", unique: true, using: :btree
 
-  create_table "stories_tags", force: :cascade do |t|
-    t.integer  "story_id"
-    t.integer  "tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "stories_tags", ["story_id"], name: "index_stories_tags_on_story_id", using: :btree
-  add_index "stories_tags", ["tag_id"], name: "index_stories_tags_on_tag_id", using: :btree
-
-  create_table "tags", force: :cascade do |t|
-    t.string "name"
-  end
-
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
-
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -74,6 +58,4 @@ ActiveRecord::Schema.define(version: 20150813230152) do
     t.datetime "avatar_updated_at"
   end
 
-  add_foreign_key "stories_tags", "stories"
-  add_foreign_key "stories_tags", "tags"
 end
