@@ -21,8 +21,8 @@
 			<h1 id='profileTitle'>My Posts</h1>
       <% current_user.stories.each do |story| %>
       		<hr>
-				  <p> Subject: <%= link_to story.title, story_path(story) %></p>
-				  <p> Posted on <%=  story.created_at.strftime("%B %d, %Y")%> about <%= story.city.city_name %> </p>
+				  <p> <span id="mainText"> Subject: </span> <span class="storyBody"> <%= link_to story.title, story_path(story) %> </span> </p>
+				  <p> <span id="mainText"> Posted on <%=  story.created_at.strftime("%B %d, %Y")%> about <%= story.city.city_name %> </span> </p>
 				<% end %>
 
 		</div>

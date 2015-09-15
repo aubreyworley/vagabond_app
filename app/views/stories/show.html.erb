@@ -1,13 +1,13 @@
 <div class="container"> 
 	<div id="myStoryPage">
-			<h1 id='myStoriesTitle'> <strong> <%= @story.title %> </strong> </h1>
+			<h1 id='myStoriesTitle' style="color: rgb(70,130,180)"> <strong> <%= @story.title %> </strong> </h1>
 			<hr>
-		  <p> Posted By: </p>
+		  <p class="mainText"> Posted By: </p>
 		  <p> <%= image_tag @story.user.avatar.url(:medium), class: 'img-circle', alt: 'Cinque Terre', width: '160', height: '140'  %></p>
-		  <p> <%= @story.user.first_name %> <%= @story.user.last_name %> </p>
-		  <p> About the Beautiful City of <%= @story.city.city_name %></p>
+		  <p class="mainText"> <%= @story.user.first_name %> <%= @story.user.last_name %> </p>
+		  <p class="mainText"> About the Beautiful City of <%= @story.city.city_name %></p>
 		  <hr>
-		  <%= @story.body %>  
+		  <span class='storyBody'> <%= @story.body %> </span>
 		  <hr>
 		  
 		     <%= link_to "Edit Post", edit_story_path, class:"btn btn-primary" %> 

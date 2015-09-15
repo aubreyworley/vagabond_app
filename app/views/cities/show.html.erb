@@ -17,9 +17,9 @@
 						</div>
 						<div class="col-lg-8">
 							<hr>
-							<p> Title: <%= link_to story.title, story_path(story) %> </p>
+							<p> <span id="mainText"> Title: </span> <span class="storyBody"> <%= link_to story.title, story_path(story) %> </span> </p>
 					    <hr>
-					     <p> Story: <%= story.body %> </p>
+					     <p> <span id="mainText"> Post: </span>  <span class="storyBody"> <%= story.body %> </span> </p>
 					  </div>
 					 </div>
 				<% end %>

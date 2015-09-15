@@ -13,6 +13,19 @@ class CitiesController < ApplicationController
     # redirect_to story_path(story)
   end
 
+  def edit
+    @city = City.friendly.find(params[:id])
+    render :edit
+  end
+
+  def update
+    city = City.friendly.find(params[:id])
+    city.update_attributes(city_params)
+    redirect_to city_path(city)
+   end
+
+
+
   def show
     @stories = City.friendly.find(params[:id]).stories.order("created_at DESC")
     @city = City.friendly.find(params[:id])
