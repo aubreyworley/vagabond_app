@@ -43,7 +43,7 @@
           <ul class="nav navbar-nav navbar-right" id="nav-links">
            <% if current_user %> 
            
-           <li style="color:white"><%= current_user.first_name %></li> 
+           <li style="color:white"> <%= link_to "Weclome " + current_user.first_name + "!", 'profile' %> </li> 
            <li><%= link_to "Log out", logout_path, method: "delete" %></li> 
            
            <% else %> 
