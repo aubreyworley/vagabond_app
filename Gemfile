@@ -30,6 +30,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem "paperclip", "~> 4.3"
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'aws-sdk', '~> 1.6'
 
 gem 'friendly_id', '~> 5.1.0'
 
@@ -37,6 +38,7 @@ gem 'friendly_id', '~> 5.1.0'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+	gem 'dotenv-rails'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
